@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import MovieCard from './MovieCard.js';
 require('dotenv').config();
 
-export default function SearchMovies() {
+export default function ListMovies() {
 
 	const APIKEY =  process.env.REACT_APP_MY_API_KEY;
 	const [query, setQuery] = useState('');
@@ -16,8 +16,7 @@ export default function SearchMovies() {
 
 		//const url = `https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&language=en-US&query=${query}&page=1&include_adult=false`;
 		
-		const url =`https://api.themoviedb.org/3/trending/all/day?api_key=${APIKEY}`;
-
+const url= `https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
 
 		try {
 			const res = await fetch(url);

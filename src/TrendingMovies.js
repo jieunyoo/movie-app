@@ -1,16 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import MovieCard from './MovieCard.js';
 require('dotenv').config();
 
-export default function SearchMovies() {
+export default function TrendingMovies() {
 
 	const APIKEY =  process.env.REACT_APP_MY_API_KEY;
 	const [query, setQuery] = useState('');
 
 	const [movies,setMovies] = useState([]);
 
-	const searchM = async(e) => {
-		e.preventDefault();
+
+	useEffect( () => {
 
 		//const query = "Jurassic Park";
 
@@ -18,37 +18,26 @@ export default function SearchMovies() {
 		
 		const url =`https://api.themoviedb.org/3/trending/all/day?api_key=${APIKEY}`;
 
-
-		try {
-			const res = await fetch(url);
-			const data = await res.json();
-			console.log(data.results);
+			fetch(url)
+				.then(results => results.json())
+				.then(data => {
+					console.log(data.results);
 			setMovies(data.results);
 
-		}
-		catch(err) {
-			console.error(err);
-		}
+		});
 
-	}
+	},[]);
 
-
+	
 	return (
-		<>
-		<form className = "form" onSubmit={searchM}>
-			<label className = "label" htmlFor="query"> Movie name </label>
-			<input className = "input" type="text" name="query" 
-			placeholder="jurassic park"
-			value={query} onChange={(e) => setQuery(e.target.value)}/>
-			<button className="button" type="submit"> Search </button>
-		</form>
+		<div>
 			<div className="card-list">
 				{movies.filter(movie => movie.poster_path).map(movie => (
 
 					<MovieCard movie={movie} key={movie.id}/>
 					))}
-					</div>
-		</>
-
+		</div>
+</div>
 	)
+
 }
