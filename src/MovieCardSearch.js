@@ -10,18 +10,18 @@ export default function MovieCardSearch({movie}) {
 	return(
 
 
-				<div className="card"  >
+				<div className="card2"  >
 
 					<a href = {`https://themoviedb.org/movie/${movie.id}`} >
-					<img className="card--image"
+					<img className="card2--image"
 					src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
 					alt = {movie.title + 'poster title'} 
 						/>
 						<div className = "card--content">
 						<h3 className="card--title">{movie.title} </h3>
-						<p> <small> Release date: {movie.release_date}</small></p>
+						<p> <strong> Release date: </strong> {movie.release_date}</p>
 
-						<p> <small> Rating: {movie.vote_average}</small></p>
+						<p> <strong> Rating: </strong> {movie.vote_average}</p>
 						<p className="card--desc">{movie.overview}</p>
 						</div>
 						</a>
