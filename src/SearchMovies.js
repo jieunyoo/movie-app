@@ -36,7 +36,7 @@ export default function SearchMovies() {
 	return (
 		<>
 		<form className = "form" onSubmit={searchM}>
-			<label className = "label" htmlFor="query"> Enter a Movie name </label>
+			<label className = "label" htmlFor="query"> <h3 class="title3">Enter a Movie name </h3></label>
 			<input className = "input" type="text" name="query" 
 			placeholder="jurassic park"
 			value={query} onChange={(e) => setQuery(e.target.value)}/>

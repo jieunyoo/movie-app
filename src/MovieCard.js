@@ -3,10 +3,7 @@ import React from "react";
 //only pass in movie b/c just need it, otherwise props
 
 export default function MovieCard({movie}) {
-
-
 	//const{movie} = props;
-	
 	return(
 
 			<div className="card"  >
