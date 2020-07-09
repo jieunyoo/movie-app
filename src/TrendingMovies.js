@@ -16,7 +16,7 @@ export default function TrendingMovies() {
 
 		//const url = `https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&language=en-US&query=${query}&page=1&include_adult=false`;
 		
-		const url =`https://api.themoviedb.org/3/trending/all/day?api_key=${APIKEY}`;
+		const url =`https://api.themoviedb.org/3/trending/all/day?api_key=${APIKEY}&page=1`;
 
 			fetch(url)
 				.then(results => results.json())
@@ -30,14 +30,11 @@ export default function TrendingMovies() {
 
 	
 	return (
-		<div>
-			<div className="card-list">
-				{movies.filter(movie => movie.poster_path).map(movie => (
 
+			<div className = "grid">
+				{movies.filter(movie => movie.poster_path).map(movie => (
 					<MovieCard movie={movie} key={movie.id}/>
 					))}
-		</div>
-</div>
+			</div>
 	)
-
 }
