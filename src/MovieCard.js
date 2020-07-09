@@ -7,6 +7,7 @@ export default function MovieCard({movie}) {
 	return(
 
 			<div className="card"  >
+					<a href = {`https://themoviedb.org/movie/${movie.id}`} >
 					<img className="card--image"
 					src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
 					alt = {movie.title + 'poster title'} 
@@ -17,6 +18,7 @@ export default function MovieCard({movie}) {
 
 						<p> <strong> Rating: </strong> {movie.vote_average}</p>
 						</div>
+						</a>
 						</div> 
 	)
 					}
