@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import MovieCard from './MovieCard.js';
+import MovieCardSearch from './MovieCardSearch.js';
 require('dotenv').config();
 
 export default function SearchMovies() {
@@ -42,13 +42,12 @@ export default function SearchMovies() {
 			value={query} onChange={(e) => setQuery(e.target.value)}/>
 			<button className="button" type="submit"> Search </button>
 		</form>
-
-			<div className="grid">
+					<div class="grid">
 					{movies.filter(movie => movie.poster_path).map(movie => (
 
-						<MovieCard movie={movie} key={movie.id}/>
+						<MovieCardSearch movie={movie} key={movie.id}/>
 						))}
-			</div>
+		</div>
 		</>
 
 	)
