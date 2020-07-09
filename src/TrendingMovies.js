@@ -28,11 +28,10 @@ export default function TrendingMovies() {
 
 	},[]);
 
-	
 	return (
 
 			<div className = "grid">
-				{movies.filter(movie => movie.poster_path).map(movie => (
+				{movies.slice(0,8).filter(movie => movie.poster_path).map(movie => (
 					<MovieCard movie={movie} key={movie.id}/>
 					))}
 			</div>

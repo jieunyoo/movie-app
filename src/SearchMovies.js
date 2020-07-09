@@ -14,9 +14,9 @@ export default function SearchMovies() {
 
 		//const query = "Jurassic Park";
 
-		//const url = `https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&language=en-US&query=${query}&page=1&include_adult=false`;
+		const url = `https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&language=en-US&query=${query}&page=1&include_adult=false`;
 		
-		const url =`https://api.themoviedb.org/3/trending/all/day?api_key=${APIKEY}`;
+		//const url =`https://api.themoviedb.org/3/trending/all/day?api_key=${APIKEY}`;
 
 
 		try {
@@ -36,18 +36,19 @@ export default function SearchMovies() {
 	return (
 		<>
 		<form className = "form" onSubmit={searchM}>
-			<label className = "label" htmlFor="query"> Movie name </label>
+			<label className = "label" htmlFor="query"> Enter a Movie name </label>
 			<input className = "input" type="text" name="query" 
 			placeholder="jurassic park"
 			value={query} onChange={(e) => setQuery(e.target.value)}/>
 			<button className="button" type="submit"> Search </button>
 		</form>
-			<div className="card-list">
-				{movies.filter(movie => movie.poster_path).map(movie => (
 
-					<MovieCard movie={movie} key={movie.id}/>
-					))}
-					</div>
+			<div className="grid">
+					{movies.filter(movie => movie.poster_path).map(movie => (
+
+						<MovieCard movie={movie} key={movie.id}/>
+						))}
+			</div>
 		</>
 
 	)
